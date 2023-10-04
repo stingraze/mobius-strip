@@ -48,22 +48,22 @@ int main() {
             }
         }
 
-        // Check if any valid row has an average close enough to the TARGET
-        for (int i = 0; i < ROWS; i++) {
-            if (validRows[i] && abs(rowAverage(array[i]) - TARGET) <= THRESHOLD) {
-                printf("TARGET REACHED on row %d (Avg: %.2f)\n", i, rowAverage(array[i]));
-                break;
-            }
+    // Check if any valid row has an average close enough to the TARGET
+    for (int i = 0; i < ROWS; i++) {
+        if (validRows[i] && abs(rowAverage(array[i]) - TARGET) <= THRESHOLD) {
+            printf("TARGET REACHED on row %d (Avg: %.2f)\n", i + 1, rowAverage(array[i]));  // Add 1 to the row number
+            break;
         }
+    }
 
-        // Print current row if it's valid
-        if (validRows[rowIndex]) {
-            printf("Row %d:\t", rowIndex);
-            for (int j = 0; j < COLS; j++) {
-                printf("%d\t", array[rowIndex][j]);
-            }
-            printf("\n");
+    // Print current row if it's valid
+    if (validRows[rowIndex]) {
+        printf("Row %d:\t", rowIndex + 1);  // Add 1 to the row number
+        for (int j = 0; j < COLS; j++) {
+            printf("%d\t", array[rowIndex][j]);
         }
+        printf("\n");
+    }
 
         // Move to next row or reset to the beginning if at the twist
         rowIndex = (rowIndex + 1) % ROWS;
