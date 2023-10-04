@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+//Created using the help of ChatGPT (GPT-4) on October 4th, 2023.
+//(C)Tsubasa Kato at Inspire Search Corporation
+//Please Visit Our Company Website at: https://www.inspiresearch.io/en
 #define ROWS 10
 #define COLS 10
 #define TARGET 35 //Change this target
