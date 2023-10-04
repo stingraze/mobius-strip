@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//Created using the help of ChatGPT (GPT-4) on October 4th, 2023.
-//(C)Tsubasa Kato at Inspire Search Corporation
-//Please Visit Our Company Website at: https://www.inspiresearch.io/en
+
 #define ROWS 10
 #define COLS 10
 #define TARGET 35 //Change this target
@@ -39,21 +37,21 @@ int main() {
 
     // Möbius strip-inspired iteration and pruning process
     for (int loopCounter = 0, rowIndex = 0; loopCounter < 30; loopCounter++) {
-        // If we reach the twist, start pruning
-        if (rowIndex == MOBIUS_TWIST && remainingRows > 1) {
-            for (int i = 0; i < ROWS; i++) {
-                if (validRows[i] && abs(rowAverage(array[i]) - TARGET) > THRESHOLD) {
-                    validRows[i] = 0;
-                    remainingRows--;
-                    printf("Pruned row %d (Avg: %.2f)\n", i, rowAverage(array[i]));
-                }
+       // If we reach the twist, start pruning
+    if (rowIndex == MOBIUS_TWIST && remainingRows > 1) {
+        for (int i = 0; i < ROWS; i++) {
+            if (validRows[i] && abs(rowAverage(array[i]) - TARGET) > THRESHOLD) {
+                validRows[i] = 0;
+                remainingRows--;
+                printf("Pruned row %d (Avg: %.2f)\n", i + 1, rowAverage(array[i])); // Add 1 to the row number for printing
             }
         }
+    }
 
     // Check if any valid row has an average close enough to the TARGET
     for (int i = 0; i < ROWS; i++) {
         if (validRows[i] && abs(rowAverage(array[i]) - TARGET) <= THRESHOLD) {
-            printf("TARGET REACHED on row %d (Avg: %.2f)\n", i + 1, rowAverage(array[i]));  // Add 1 to the row number
+            printf("TARGET REACHED on row %d (Avg: %.2f)\n", i + 1, rowAverage(array[i]));  // Add 1 to the row number for printing
             break;
         }
     }
